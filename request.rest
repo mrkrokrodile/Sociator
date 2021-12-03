@@ -1,0 +1,159 @@
+#####################################
+            // AUTH //
+#####################################
+POST http://localhost:5000/auth/register
+Content-Type: application/json
+
+{
+    "pseudo": "Super",
+    "password": "Man",
+    "email": "Super.test@gmail.com"
+    
+}
+###
+POST http://localhost:5000/auth/register
+Content-Type: application/json
+
+{
+    "pseudo": "Zombie",
+    "password": "dedzombie",
+    "email": "Zombie.test@gmail.com"
+    
+}
+###
+GET http://localhost:5000/users/
+Content-Type: application/json
+
+###
+GET http://localhost:5000/users/61a73c0e8aeca4e1384361f5
+Content-Type: application/json
+
+
+PUT http://localhost:5000/users/61a2731b935e8842504a6249
+Content-Type: application/json
+
+{
+    "bio": "yo les gros nul !"
+}
+###
+PATCH http://localhost:5000/users/follow/61a17169258007789ad08bcf
+Content-Type: application/json
+
+{
+    "idToFollow": "61a17148258007789ad08bcb"  
+}
+###
+
+PATCH http://localhost:5000/users/unfollow/61a17169258007789ad08bcf
+Content-Type: application/json
+
+{
+    "idToUnFollow": "61a17148258007789ad08bcb"  
+}
+###
+
+
+
+DELETE http://localhost:5000/users/61a2736b935e8842504a624b
+###
+
+
+GET http://localhost:5000/jwtid
+Cookie:  access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYTczYzBlOGFlY2E0ZTEzODQzNjFmNSIsImlhdCI6MTYzODM1Mjc5OCwiZXhwIjoxODk3NTUyNzk4fQ.WaHSewmHbF9EDTq1CR5Z9S5zo-qaQ5IGaSHhH5TO7EM; Max-Age=259200; Path=/; Expires=Sat, 04 Dec 2021 09:59:58 GMT; HttpOnly; Secure; SameSite=Lax
+
+
+###
+POST http://localhost:5000/auth/login
+Content-Type: application/json
+
+{
+    "password": "Bon",
+    "email": "Premier.test@gmail.com"
+    
+}
+###
+
+GET http://localhost:5000/auth/logout
+Content-Type: application/json
+
+{
+    "password": "Bon",
+    "email": "Premier.test@gmail.com"
+    
+}
+###
+############################################
+                // POST //
+############################################
+POST http://localhost:5000/post
+Content-Type: application/json
+
+{
+   "posterId": "61a74a53ce551be9e572d756",
+   "message": "yo les batard !"
+}
+###
+PUT http://localhost:5000/post/61a889070d4b7506a800e089
+Content-Type: application/json
+
+{
+   "message": "yo les gros salaud de merde quoi ! putain !"
+}
+###
+DELETE http://localhost:5000/post/61a889070d4b7506a800e089
+Content-Type: application/json
+
+{
+   "message": "yo les gros salaud de merde quoi ! putain !"
+}
+###
+PATCH http://localhost:5000/post/like-post/61a889070d4b7506a800e089
+Content-Type: application/json
+
+{
+   "id": "61a17148258007789ad08bcb"
+}
+###
+PATCH http://localhost:5000/post/unlike-post/61a889070d4b7506a800e089
+Content-Type: application/json
+
+{
+   "id": "61a17148258007789ad08bcb"
+}
+###
+
+PATCH http://localhost:5000/post/comment-post/61a889070d4b7506a800e089
+Content-Type: application/json
+
+{
+   "commenterId": "61a17148258007789ad08bcb",
+   "commenterPseudo": "Mario",
+   "text": "Super cool mon sauce !"
+}
+###
+
+PATCH http://localhost:5000/post/edit-comment-post/61a889070d4b7506a800e089
+Content-Type: application/json
+
+{
+   "commentId": "61a88aa90d4b7506a800e098",
+   "text": "C'est de la merde mon sauce !"
+}
+###
+
+PATCH http://localhost:5000/post/delete-comment-post/61a889070d4b7506a800e089
+Content-Type: application/json
+
+{
+   "commentId": "61a88aa90d4b7506a800e098"
+}
+###
+
+############################################
+                // UPLOAD //
+############################################
+
+
+POST http://localhost:5000/upload
+Content-Type: multipart/form-data
+###
