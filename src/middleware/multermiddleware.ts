@@ -11,8 +11,8 @@ import multer from "multer";
 //         cb(null, file.originalname)
 //     }
 // });
-if (!fs.existsSync("./thoughts")) {
-    fs.mkdir("./thoughts", (err) => {});
-  }
+// if (!fs.existsSync("./thoughts")) {
+//     fs.mkdir("./thoughts", (err) => {});
+//   }
   
-export const upload = multer({ dest: __dirname + `/thoughts` });
+// export const upload = multer({ dest: __dirname + `/thoughts` });
