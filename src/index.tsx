@@ -6,30 +6,7 @@ import mongoose from "mongoose";
 import cookieParser from 'cookie-parser';
 import { checkUser, requireAuth } from './middleware/AuthMiddleware';
 import multer from 'multer';
-import React from "react";
-import ReactDOM from "react-dom";
-import "primereact/resources/themes/lara-dark-purple/theme.css";
-import "primereact/resources/primereact.min.css";
-import "primeicons/primeicons.css";
-import Mainblock from "../src/components/main-block.js";
-
-
-export const App = () => {
-    return (
-        <div>
-            <div id="homepage">
-
-              <Mainblock />
-              
-            </div>
-           
-            
-             
-        </div>
-       
-        
-    )
-}
+import cors from 'cors';
 
 
 class Server {
@@ -55,6 +32,11 @@ class Server {
             res.status(200).send(res.locals.user._id)
         });
 
+        this._app.use(cors({
+            origin: 'http://localhost:1234',
+            credentials: true,
+        }))
+
 
         // routes
         this.app.use('/', root);
@@ -78,9 +60,6 @@ class Server {
         console.log(`Connected to ${cnx.connection.host}`)
     }
 }
-if(typeof window !== 'undefined') {
-    ReactDOM.render(<App />, document.getElementById('root'));
- }
 
 new Server().start().then(() => console.log(`Server running on http://localhost:${process.env.PORT}`))
 
