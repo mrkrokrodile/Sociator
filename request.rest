@@ -15,9 +15,10 @@ POST http://localhost:5000/auth/register
 Content-Type: application/json
 
 {
-    "pseudo": "Zombie",
-    "password": "dedzombie",
-    "email": "Zombie.test@gmail.com"
+    "pseudo": "Gaetan",
+    "password": "password",
+    "password2":"password",
+    "email": "gaetan.beurel@gmail.com"
     
 }
 ###
@@ -54,7 +55,7 @@ Content-Type: application/json
 
 
 
-DELETE http://localhost:5000/users/61a2736b935e8842504a624b
+DELETE http://localhost:5000/users/61a889070d4b7506a800e089
 ###
 
 
@@ -85,12 +86,15 @@ Content-Type: application/json
 ############################################
                 // POST //
 ############################################
+GET http://localhost:5000/post
+Content-Type: application/json
+###
 POST http://localhost:5000/post
 Content-Type: application/json
+Cookie: access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYTc0YTUzY2U1NTFiZTllNTcyZDc1NiIsImlhdCI6MTY0NDg1MzczMiwiZXhwIjoxOTA0MDUzNzMyfQ.QuuTJ9gYtdZ7MQ56ObbfnmtqnS6rFZ3T_Uob4KqWVlQ; Max-Age=259200; Path=/; Expires=Thu, 17 Feb 2022 15:48:52 GMT; HttpOnly; Secure; SameSite=Lax
 
 {
-   "posterId": "61a74a53ce551be9e572d756",
-   "message": "yo les batard !"
+   "message": "bonjour, comment ça va !"
 }
 ###
 PUT http://localhost:5000/post/61a889070d4b7506a800e089
@@ -100,12 +104,9 @@ Content-Type: application/json
    "message": "yo les gros salaud de merde quoi ! putain !"
 }
 ###
-DELETE http://localhost:5000/post/61a889070d4b7506a800e089
+DELETE http://localhost:5000/post/61b1f0c651540b0657b30030
 Content-Type: application/json
 
-{
-   "message": "yo les gros salaud de merde quoi ! putain !"
-}
 ###
 PATCH http://localhost:5000/post/like-post/61a889070d4b7506a800e089
 Content-Type: application/json
@@ -122,21 +123,21 @@ Content-Type: application/json
 }
 ###
 
-PATCH http://localhost:5000/post/comment-post/61a889070d4b7506a800e089
+PATCH http://localhost:5000/post/comment-post/62486853f6efb20264ad4499
 Content-Type: application/json
 
 {
-   "commenterId": "61a17148258007789ad08bcb",
+   "commenterId": "61a74a53ce551be9e572d756",
    "commenterPseudo": "Mario",
    "text": "Super cool mon sauce !"
 }
 ###
 
-PATCH http://localhost:5000/post/edit-comment-post/61a889070d4b7506a800e089
+PATCH http://localhost:5000/post/edit-comment-post/61a74a53ce551be9e572d756
 Content-Type: application/json
 
 {
-   "commentId": "61a88aa90d4b7506a800e098",
+   "commentId": "621503f8988b97635c654462",
    "text": "C'est de la merde mon sauce !"
 }
 ###
@@ -145,7 +146,7 @@ PATCH http://localhost:5000/post/delete-comment-post/61a889070d4b7506a800e089
 Content-Type: application/json
 
 {
-   "commentId": "61a88aa90d4b7506a800e098"
+   "commentId": "61a74a53ce551be9e572d756"
 }
 ###
 

@@ -1,18 +1,15 @@
-import { Router } from "express";
-import UserRoutes from "./UserRoutes";
-import AuthRoutes from "./AuthRoutes";
-import PostRoutes from "./PostRoutes";
-import UploadRoutes from "./UploadRoutes";
+import { Router } from 'express';
+import UserRoutes from './UserRoutes';
+import AuthRoutes from './AuthRoutes';
+import PostRoutes from './PostRoutes';
+import UploadRoutes from './UploadRoutes';
+import { checkUser } from '../middleware/AuthMiddleware';
 
+const root = Router();
 
-const root = Router()
+root.use('/auth', AuthRoutes);
+root.use('/users', [checkUser], UserRoutes);
+root.use('/post', [checkUser], PostRoutes);
+root.use('/upload', [checkUser], UploadRoutes);
 
-
-
-root.use('/auth', AuthRoutes)
-root.use('/users', UserRoutes)
-root.use('/post', PostRoutes)
-root.use('/upload', UploadRoutes)
-
-
-export default root
+export default root;

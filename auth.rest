@@ -2,8 +2,8 @@ POST http://localhost:5000/auth/login
 Content-Type: application/json
 
 {
-    "password": "Bon",
-    "email": "Premier.test@gmail.com"
+    "password": "password",
+    "email": "jean.bon@gmail.com"
     
 }
 ###
@@ -12,8 +12,8 @@ GET http://localhost:5000/auth/logout
 Content-Type: application/json
 
 {
-    "password": "Bon",
-    "email": "Premier.test@gmail.com"
+    "password": "password",
+    "email": "jean.bon@gmail.com"
     
 }
 ###

@@ -1,6 +1,6 @@
-import { Request } from "express";
-import fs from "fs";
-import multer from "multer";
+import { Request } from 'express';
+import fs from 'fs';
+import multer from 'multer';
 
 // const storage = multer.diskStorage({
 //     destination: function (req, file, cb) {
@@ -14,5 +14,5 @@ import multer from "multer";
 // if (!fs.existsSync("./thoughts")) {
 //     fs.mkdir("./thoughts", (err) => {});
 //   }
-  
+
 // export const upload = multer({ dest: __dirname + `/thoughts` });

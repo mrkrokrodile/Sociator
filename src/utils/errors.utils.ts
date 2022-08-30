@@ -9,6 +9,9 @@ export const registerErrors = (err) => {
   if (err.message.includes("password"))
     errors.password = "Le mot de passe doit faire 6 caractères minimum";
 
+  if (err.message.includes("match"))
+  errors.password = "Les mots de passes ne sont pas identique !";
+
   if (err.code === 11000 && Object.keys(err.keyValue)[0].includes("pseudo"))
     errors.pseudo = "Ce pseudo est déjà pris";
 
