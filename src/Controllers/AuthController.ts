@@ -31,15 +31,9 @@ export class AuthController {
 
 	static login = async (req: Request, res: Response) => {
 		const { email, password } = req.body;
-
 		const user = await UserModel.findOne({ email });
 		const token = AuthController.createToken(user._id);
-		res.cookie('access_token', token, {
-			httpOnly: true,
-			maxAge: maxAge,
-			sameSite: 'lax',
-			secure: true,
-		});
+		
 		if (!user) {
 			// si user est undefined ou null
 			return res.status(400).send({ message: 'User not found !' });
@@ -56,7 +50,16 @@ export class AuthController {
 				return res.status(400).send({ message: 'Invalid credentials' });
 			}
 
-			return res.send({ user });
+			if (match) {
+				res.cookie('access_token', token, {
+					httpOnly: true,
+					maxAge: maxAge,
+					sameSite: 'lax',
+					secure: true,
+				});
+                return res.send({ user });
+			}
+			
 		});
 	};
 
@@ -64,6 +67,6 @@ export class AuthController {
 		res.cookie('access_token', '', { maxAge: 1 });
 		// res.clearCookie('access_token', {path: '/auth/logout'});
 		// res.status(200).send({ message:'cookie deleted'})
-		return res.send({ message: 'ok' });
+		return res.send({ message: 'log out' });
 	};
 }

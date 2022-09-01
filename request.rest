@@ -123,13 +123,13 @@ Content-Type: application/json
 }
 ###
 
-PATCH http://localhost:5000/post/comment-post/62486853f6efb20264ad4499
+PATCH http://localhost:5000/post/comment-post/630dffd7f6c469b31e481e57
 Content-Type: application/json
 
 {
-   "commenterId": "61a74a53ce551be9e572d756",
-   "commenterPseudo": "Mario",
-   "text": "Super cool mon sauce !"
+   "commenterId": "630dff7df6c469b31e481e34",
+   "commenterPseudo": "gaetan",
+   "text": "ça marche !"
 }
 ###
 
