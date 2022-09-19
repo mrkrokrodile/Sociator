@@ -43,13 +43,15 @@ const userSchema = new mongoose.Schema(
 		likes: {
 			type: [String],
 		},
+
 	},
+
 	{
 		timestamps: true,
 	}
 );
 
-// play function before save into display: 'block',
+// chiffre le mot de passe
 userSchema.pre('save', async function (next) {
 	const salt = await bcrypt.genSalt();
 	this.password = await bcrypt.hash(this.password, salt);

@@ -1,0 +1,47 @@
+// db.users.findOne([
+//   {
+//     $match: {
+//       "pseudo": "John"
+//     }
+//   }
+// ])
+
+ db.posts.aggregate( [ 
+  
+                      {
+                      $lookup: {
+                        from: 'users',
+                        localField: 'posterId',
+                        foreignField: '_id',
+                        as: 'user'
+                      }
+                      },
+
+                      {
+                        $project: {
+                          "_id": 0,
+                          "posterId": 0,
+                          "likers": 0,
+                          "user.email": 0,
+                          "user.password": 0,
+                          "user.picture" : 0,
+                          "user.followers": 0,
+                          "user.following": 0,
+                          "user.likes": 0,
+                          "user._id": 0,
+                          "user.createdAt": 0,
+                          "user.updatedAt": 0,
+                          "user.__v": 0,
+                          "comments": 0
+                        }
+                      },
+
+                    {
+                       $match: {
+                        "user.pseudo" : "John",
+                        "message": /bonjour/i
+                      }
+                    }
+                     
+                 
+ ])

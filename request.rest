@@ -5,9 +5,10 @@ POST http://localhost:5000/auth/register
 Content-Type: application/json
 
 {
-    "pseudo": "Super",
-    "password": "Man",
-    "email": "Super.test@gmail.com"
+    "pseudo": "SuperMan",
+    "password": "password",
+    "password2": "password",
+    "email": "SuperMan@gmail.com"
     
 }
 ###
@@ -28,13 +29,14 @@ Content-Type: application/json
 ###
 GET http://localhost:5000/users/61a73c0e8aeca4e1384361f5
 Content-Type: application/json
+###
 
 
 PUT http://localhost:5000/users/61a2731b935e8842504a6249
 Content-Type: application/json
 
 {
-    "bio": "yo les gros nul !"
+    "bio": "yo les gens cool !"
 }
 ###
 PATCH http://localhost:5000/users/follow/61a17169258007789ad08bcf
@@ -68,8 +70,8 @@ POST http://localhost:5000/auth/login
 Content-Type: application/json
 
 {
-    "password": "dedzombie",
-    "email": "Zombie.test@gmail.com"
+    "password": "password",
+    "email": "Jean.bon@gmail.com"
     
 }
 ###
@@ -91,7 +93,7 @@ Content-Type: application/json
 ###
 POST http://localhost:5000/post
 Content-Type: application/json
-Cookie: access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYTc0YTUzY2U1NTFiZTllNTcyZDc1NiIsImlhdCI6MTY0NDg1MzczMiwiZXhwIjoxOTA0MDUzNzMyfQ.QuuTJ9gYtdZ7MQ56ObbfnmtqnS6rFZ3T_Uob4KqWVlQ; Max-Age=259200; Path=/; Expires=Thu, 17 Feb 2022 15:48:52 GMT; HttpOnly; Secure; SameSite=Lax
+Set-Cookie: access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMWY5OWQ3MDQ0MzczZTBiM2RmZGNjNSIsImlhdCI6MTY2MzA2Mjc1NCwiZXhwIjoxOTIyMjYyNzU0fQ.iH5Hv1FPEBj_osOo0dYmW_5cuF8Knk6f1v5iCJt-kJM; Max-Age=259200; Path=/; Expires=Fri, 16 Sep 2022 09:52:34 GMT; HttpOnly; Secure; SameSite=Lax
 
 {
    "message": "bonjour, comment ça va !"
@@ -101,7 +103,7 @@ PUT http://localhost:5000/post/61a889070d4b7506a800e089
 Content-Type: application/json
 
 {
-   "message": "yo les gros salaud de merde quoi ! putain !"
+   "message": "yo les gros rigolo"
 }
 ###
 DELETE http://localhost:5000/post/61b1f0c651540b0657b30030
@@ -123,12 +125,12 @@ Content-Type: application/json
 }
 ###
 
-PATCH http://localhost:5000/post/comment-post/630dffd7f6c469b31e481e57
+PATCH http://localhost:5000/post/comment-post/6319eda2429fffc9758a8e01
 Content-Type: application/json
 
 {
-   "commenterId": "630dff7df6c469b31e481e34",
-   "commenterPseudo": "gaetan",
+   "commenterId": "6319a647ee427a6e1dcffdf1",
+   "commenterPseudo": "John",
    "text": "ça marche !"
 }
 ###
@@ -138,7 +140,7 @@ Content-Type: application/json
 
 {
    "commentId": "621503f8988b97635c654462",
-   "text": "C'est de la merde mon sauce !"
+   "text": "C'est trop bien!"
 }
 ###
 

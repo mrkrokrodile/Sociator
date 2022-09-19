@@ -32,13 +32,14 @@ export class AuthController {
 	static login = async (req: Request, res: Response) => {
 		const { email, password } = req.body;
 		const user = await UserModel.findOne({ email });
-		const token = AuthController.createToken(user._id);
 		
 		if (!user) {
 			// si user est undefined ou null
 			return res.status(400).send({ message: 'User not found !' });
 		}
-
+		
+		const token = AuthController.createToken(user._id);
+		
 		user.comparePassword(password, (error: Error, match: boolean) => {
 			// si compare password renvois une error envoyer le message une erreur
 			if (error) {

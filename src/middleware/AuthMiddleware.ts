@@ -18,7 +18,7 @@ export const checkUser = (req: Request, res: Response, next: NextFunction) => {
 			}
 		});
 	} else {
-		console.log('bad');
+		console.log('bad (error with checkUser)');
 		res.locals.user = null;
 		// next();
 	}

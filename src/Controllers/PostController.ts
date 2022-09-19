@@ -4,6 +4,7 @@ import { Request, Response } from 'express';
 import PostModel from '../models/PostModel';
 
 export class PostController {
+	
 	static readPost = (req: Request, res: Response) => {
 		PostModel.find((err, docs) => {
 			if (!err) res.send(docs);
@@ -14,7 +15,6 @@ export class PostController {
 	};
 
 	static createPost = async (req: Request, res: Response) => {
-		console.log('userPOST', res.locals.user);
 		const newPost = new PostModel({
 			posterId: res.locals.user,
 			message: req.body.message,
@@ -111,6 +111,7 @@ export class PostController {
 	};
 
 	static commentPost = async (req: Request, res: Response) => {
+		// console.log('USER', res.locals.user)
 		if (!Types.ObjectId.isValid(req.params.id))
 			return res.status(400).send('ID unknown : ' + req.params.id);
 
@@ -121,7 +122,8 @@ export class PostController {
 					$push: {
 						comments: {
 							commenterId: req.body.commenterId,
-							commenterPseudo: req.body.commenterPseudo,
+							commenterPseudo: res.locals.user.pseudo,
+							// commenterPseudo: "test",
 							text: req.body.text,
 							timestamp: new Date().getTime(),
 						},
